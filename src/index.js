@@ -49,20 +49,12 @@ console.log("Proje açıldı!");
 
 /* Kodlar Buradan aşağıya */
 
+//nav a class isimleri ve text içerik kısımları
+//dynamic object keys
 const menuA = document.querySelectorAll("header nav a");
-// menuA[0].textContent = siteContent.nav["nav-item-1"];
-// menuA[1].textContent = siteContent.nav["nav-item-2"];
-// menuA[2].textContent = siteContent.nav["nav-item-3"];
-// menuA[3].textContent = siteContent.nav["nav-item-4"];
-// menuA[4].textContent = siteContent.nav["nav-item-5"];
-// menuA[5].textContent = siteContent.nav["nav-item-6"];
-
-// dynamic object keys
 menuA.forEach((m, i) => {
   m.textContent = siteContent.nav[`nav-item-${i + 1}`];
   m.classList.add("italic");
-  //m.setAttribute("class", "italic");
-  // });
 });
 
 //img için olan DOM lar
