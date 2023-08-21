@@ -51,37 +51,42 @@ console.log("Proje açıldı!");
 
 //nav a class isimleri ve text içerik kısımları
 //dynamic object keys
-const menuA = document.querySelectorAll("header nav a");
-menuA.forEach((m, i) => {
+const ankerTag = document.querySelectorAll("header nav a");
+ankerTag.forEach((m, i) => {
   m.textContent = siteContent.nav[`nav-item-${i + 1}`];
   m.classList.add("italic");
 });
 
-//img için olan DOM lar
-//logo img
+// logo-img
 document
   .getElementById("logo-img")
   .setAttribute("src", siteContent.images["logo-img"]);
-//cta img
+
+//cta-img için
+
 document
   .getElementById("cta-img")
   .setAttribute("src", siteContent.images["cta-img"]);
-// middle img
+
+//middle-img için
 document
   .getElementById("middle-img")
   .setAttribute("src", siteContent.images["accent-img"]);
 
-//h1 text ekle
-document.querySelector(".cta h1").textContent = siteContent.cta.h1;
-//button text ekle
-document.querySelector("button").textContent = siteContent.cta.button;
+//h1 için
+document.querySelector(".cta-text h1").textContent = siteContent.cta.h1;
 
-//section main kısmı için
+//button için
+document.querySelectorAll(".cta-text button")[0].textContent =
+  siteContent.cta.button;
+
+// section content kısmı için
+
 const contentKeys = Object.keys(siteContent["ana-içerik"]);
 
-const contentBody = document.querySelectorAll(".text-content");
+const contentSection = document.querySelectorAll(".text-content");
 //listeden h4 ve p leri sırayla alıcaz
-contentBody.forEach((c, i) => {
+contentSection.forEach((c, i) => {
   c.querySelector("h4").textContent =
     siteContent["ana-içerik"][contentKeys[i * 2]];
   c.querySelector("p").textContent =
@@ -101,7 +106,7 @@ pContact.forEach((c, i) => {
   c.textContent = siteContent.iletisim[contactKeys[i + 1]];
 });
 
-//footer kısmı
+//footer kısmı için
 
 const footerCopy = document.querySelector("footer a");
 footerCopy.textContent = siteContent.footer["copyright"];
