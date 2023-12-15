@@ -49,65 +49,16 @@ console.log("Proje açıldı!");
 
 /* Kodlar Buradan aşağıya */
 
-//nav a class isimleri ve text içerik kısımları
-//dynamic object keys
-const ankerTag = document.querySelectorAll("header nav a");
-ankerTag.forEach((m, i) => {
-  m.textContent = siteContent.nav[`nav-item-${i + 1}`];
-  m.classList.add("italic");
+// Header içindeki a taglarına class veridi
+const aHeader = document.querySelectorA("header nav a");
+
+aHeader.forEach((i) => {
+  i.setAttribute("class", "italic");
 });
 
-// logo-img
+// a lara textContenler girilecek
+
+// header img için src girilmeli
 document
   .getElementById("logo-img")
-  .setAttribute("src", siteContent.images["logo-img"]);
-
-//cta-img için
-
-document
-  .getElementById("cta-img")
-  .setAttribute("src", siteContent.images["cta-img"]);
-
-//middle-img için
-document
-  .getElementById("middle-img")
-  .setAttribute("src", siteContent.images["accent-img"]);
-
-//h1 için
-document.querySelector(".cta-text h1").textContent = siteContent.cta.h1;
-
-//button için
-document.querySelectorAll(".cta-text button")[0].textContent =
-  siteContent.cta.button;
-
-// section content kısmı için
-
-const contentKeys = Object.keys(siteContent["ana-içerik"]);
-
-const contentSection = document.querySelectorAll(".text-content");
-//listeden h4 ve p leri sırayla alıcaz
-contentSection.forEach((c, i) => {
-  c.querySelector("h4").textContent =
-    siteContent["ana-içerik"][contentKeys[i * 2]];
-  c.querySelector("p").textContent =
-    siteContent["ana-içerik"][contentKeys[i * 2 + 1]];
-});
-
-//section contact kısmı
-//h4
-document.querySelector(".contact h4").textContent =
-  siteContent.iletisim["iletişim-h4"];
-
-const contactKeys = Object.keys(siteContent.iletisim);
-// ["iletişim-h4","adres","telefon","email"]
-const pContact = document.querySelectorAll(".contact p");
-
-pContact.forEach((c, i) => {
-  c.textContent = siteContent.iletisim[contactKeys[i + 1]];
-});
-
-//footer kısmı için
-
-const footerCopy = document.querySelector("footer a");
-footerCopy.textContent = siteContent.footer["copyright"];
-footerCopy.classList.add("bold");
+  .setAttribute("src", "http://localhost:9000/img/logo.png");
