@@ -50,15 +50,38 @@ console.log("Proje açıldı!");
 /* Kodlar Buradan aşağıya */
 
 // Header içindeki a taglarına class veridi
-const aHeader = document.querySelectorA("header nav a");
+// a lara textContenler girilecek
+const aHeader = document.querySelectorAll("header nav a");
 
-aHeader.forEach((i) => {
-  i.setAttribute("class", "italic");
+aHeader.forEach((s, i) => {
+  // s.setAttribute("class", "italic");
+  s.classList.add("italic");
+  s.textContent = siteContent.nav["nav-item-" + (i + 1)];
 });
 
-// a lara textContenler girilecek
+//header image için src "logo-img"
+// .setAttribute("src", siteContent.images["logo-img"]);
+document.getElementById("logo-img").src = siteContent.images["logo-img"];
 
-// header img için src girilmeli
-document
-  .getElementById("logo-img")
-  .setAttribute("src", "http://localhost:9000/img/logo.png");
+//#cta-img"
+document.querySelector("#cta-img").src = siteContent.images["cta-img"];
+
+//accent-img
+document.querySelector("#middle-img").src = siteContent.images["accent-img"];
+
+//h1
+document.querySelector("h1").textContent = siteContent.cta.h1;
+//Button
+document.querySelector(".cta-text button").textContent = siteContent.cta.button;
+
+//main content
+//h4
+const mainContent = document.querySelectorAll(".top-content .text-content h4");
+mainContent[0].textContent = siteContent["ana-içerik"]["özellikler-h4"];
+mainContent[1].textContent = siteContent["ana-içerik"]["hakkımızda-h4"];
+
+//p
+const tContent = document.querySelector(".top-content ");
+const pContent = tContent.querySelectorAll("p");
+pContent[0].textContent = siteContent["ana-içerik"]["özellikler-içerik"];
+pContent[1].textContent = siteContent["ana-içerik"]["hakkımızda-içerik"];
