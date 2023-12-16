@@ -76,12 +76,54 @@ document.querySelector(".cta-text button").textContent = siteContent.cta.button;
 
 //main content
 //h4
-const mainContent = document.querySelectorAll(".top-content .text-content h4");
-mainContent[0].textContent = siteContent["ana-içerik"]["özellikler-h4"];
-mainContent[1].textContent = siteContent["ana-içerik"]["hakkımızda-h4"];
+// const mainContent = document.querySelectorAll(".top-content .text-content h4");
+// mainContent[0].textContent = siteContent["ana-içerik"]["özellikler-h4"];
+// mainContent[1].textContent = siteContent["ana-içerik"]["hakkımızda-h4"];
 
-//p
-const tContent = document.querySelector(".top-content ");
-const pContent = tContent.querySelectorAll("p");
-pContent[0].textContent = siteContent["ana-içerik"]["özellikler-içerik"];
-pContent[1].textContent = siteContent["ana-içerik"]["hakkımızda-içerik"];
+// //p
+// const tContent = document.querySelector(".top-content ");
+// const pContent = tContent.querySelectorAll("p");
+// pContent[0].textContent = siteContent["ana-içerik"]["özellikler-içerik"];
+// pContent[1].textContent = siteContent["ana-içerik"]["hakkımızda-içerik"];
+
+// //bottom-content
+// const bContent = document.querySelectorAll(".bottom-content .text-content");
+// //noteList dönücek
+// bContent[0].querySelector("h4").textContent =
+//   siteContent["ana-içerik"]["servisler-h4"];
+// bContent[0].querySelector("p").textContent =
+//   siteContent["ana-içerik"]["servisler-içeriği"];
+
+// bContent[1].querySelector("h4").textContent =
+//   siteContent["ana-içerik"]["ürünler-h4"];
+// bContent[1].querySelector("p").textContent =
+//   siteContent["ana-içerik"]["ürünler-içeriği"];
+
+// bContent[2].querySelector("h4").textContent =
+//   siteContent["ana-içerik"]["vizyon-h4"];
+// bContent[2].querySelector("p").textContent =
+//   siteContent["ana-içerik"]["vizyon-içeriği"];
+
+// let content1 = document.querySelectorAll(".bottom-content .text-content");
+// content1.forEach((s, i) => {
+//   let contentArr = ["servisler", "ürünler", "vizyon"];
+//   s.querySelector("h4").textContent =
+//     siteContent["ana-içerik"][`${contentArr[i]}-h4`];
+//   s.querySelector("p").textContent =
+//     siteContent["ana-içerik"][`${contentArr[i]}-içeriği`];
+// });
+
+//
+
+//ana-içerik için yazdıklarımızın özeti
+let contenAll = document.querySelectorAll(".text-content");
+let keys = Object.keys(siteContent["ana-içerik"]);
+contenAll.forEach((s, i) => {
+  s.querySelector("h4").textContent = siteContent["ana-içerik"][keys[2 * i]];
+  s.querySelector("p").textContent = siteContent["ana-içerik"][keys[2 * i + 1]];
+});
+
+//footer
+document.querySelector("footer a").classList.add("bold");
+document.querySelector("footer a").textContent =
+  siteContent.footer["copyright"];
